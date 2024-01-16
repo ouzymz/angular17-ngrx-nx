@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'angular17-ngrx-monorepo',
+  displayName: 'client',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/angular17-ngrx-monorepo',
+  coverageDirectory: '../../coverage/apps/client',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

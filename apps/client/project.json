@@ -1,26 +1,23 @@
 {
-  "name": "angular17-ngrx-monorepo",
+  "name": "client",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "angular17-ngrx-monorepo",
-  "sourceRoot": "apps/angular17-ngrx-monorepo/src",
+  "sourceRoot": "apps/client/src",
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:application",
+      "executor": "@angular-devkit/build-angular:browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/angular17-ngrx-monorepo",
-        "index": "apps/angular17-ngrx-monorepo/src/index.html",
-        "browser": "apps/angular17-ngrx-monorepo/src/main.ts",
+        "outputPath": "dist/apps/client",
+        "index": "apps/client/src/index.html",
+        "main": "apps/client/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/angular17-ngrx-monorepo/tsconfig.app.json",
+        "tsConfig": "apps/client/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": [
-          "apps/angular17-ngrx-monorepo/src/favicon.ico",
-          "apps/angular17-ngrx-monorepo/src/assets"
-        ],
-        "styles": ["apps/angular17-ngrx-monorepo/src/styles.scss"],
+        "assets": ["apps/client/src/favicon.ico", "apps/client/src/assets"],
+        "styles": ["apps/client/src/styles.scss"],
         "scripts": []
       },
       "configurations": {
@@ -40,9 +37,12 @@
           "outputHashing": "all"
         },
         "development": {
+          "buildOptimizer": false,
           "optimization": false,
+          "vendorChunk": true,
           "extractLicenses": false,
-          "sourceMap": true
+          "sourceMap": true,
+          "namedChunks": true
         }
       },
       "defaultConfiguration": "production"
@@ -51,10 +51,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "angular17-ngrx-monorepo:build:production"
+          "buildTarget": "client:build:production"
         },
         "development": {
-          "buildTarget": "angular17-ngrx-monorepo:build:development"
+          "buildTarget": "client:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -62,7 +62,7 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "buildTarget": "angular17-ngrx-monorepo:build"
+        "buildTarget": "client:build"
       }
     },
     "lint": {
@@ -73,14 +73,13 @@
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/angular17-ngrx-monorepo/jest.config.ts"
+        "jestConfig": "apps/client/jest.config.ts"
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "angular17-ngrx-monorepo:build",
-        "staticFilePath": "dist/apps/angular17-ngrx-monorepo/browser"
+        "buildTarget": "client:build"
       }
     }
   }

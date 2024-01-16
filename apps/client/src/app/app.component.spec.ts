@@ -15,13 +15,13 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome angular17-ngrx-monorepo'
+      'Welcome client'
     );
   });
 
-  it(`should have as title 'angular17-ngrx-monorepo'`, () => {
+  it(`should have as title 'client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular17-ngrx-monorepo');
+    expect(app.title).toEqual('client');
   });
 });
