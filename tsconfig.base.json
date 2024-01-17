@@ -14,7 +14,16 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@angular17-ngrx-monorepo/authentication": [
+        "libs/client/authentication/src/index.ts"
+      ],
+      "@angular17-ngrx-monorepo/authorization": [
+        "libs/client/authorization/src/index.ts"
+      ],
+      "@angular17-ngrx-monorepo/layout": ["libs/client/layout/src/index.ts"],
+      "@angular17-ngrx-monorepo/ui": ["libs/client/shared/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
